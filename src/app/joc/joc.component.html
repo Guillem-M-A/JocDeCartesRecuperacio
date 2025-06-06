@@ -3,7 +3,11 @@
     [ngStyle]="{ 'top.px': 100 + i * 120 }"
     [name] = "player"
     [posicio] = i
+    [imatgeURL]="imatges[i]"
+    [punts]="punts[i]"
+    [fons]="fons[i]"
     class="player-position"
+    id ="player{{i}}"
   ></app-jugador>
 }
 
@@ -26,6 +30,8 @@
     <!-- Stack for played Cards-->
     @for (card of game?.playedCards; track card; let i = $index){
       <img
+        (pointerover)="mostrarCarta()"
+        (pointerleave)="deixarDeMostrar()"
         class="played-card"
         src="/assets/img/cards/{{ card }}.png"
       />
@@ -41,9 +47,12 @@
     />
 
   </div>
+  <h1 id="displayCarta"></h1>
 
   <div class="start-label-box">
-    <img src="assets/img/play.png" alt="">
+    <img
+      (click)="cambiarTorn()"
+      src="assets/img/play.png" alt="">
   </div>
 
 </div>

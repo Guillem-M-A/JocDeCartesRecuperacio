@@ -1,0 +1,32 @@
+
+<h1>Resultat del joc</h1>
+<table style="border: #1a1a1a">
+  <tr>
+    <td>
+     <b>Jugador</b>
+    </td>
+    <td>
+      <b>Punts</b>
+    </td>
+  </tr>
+  @for (jugador of jugadors; track jugador; let i = $index ) {
+    <tr>
+      <td>
+        {{jugador}}
+      </td>
+      @if (estaEliminat(punts[i])) {
+        <td style="color: red">
+          {{getPunts()[i]}}
+        </td>
+      }@else{
+        <td style="color: green">
+          {{getPunts()[i]}}
+        </td>
+      }
+
+    </tr>
+
+  }
+
+</table>
+

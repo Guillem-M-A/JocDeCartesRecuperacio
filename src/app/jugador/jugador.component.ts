@@ -1,4 +1,4 @@
-import {Component, Input} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-jugador',
@@ -11,6 +11,16 @@ export class JugadorComponent {
 
   @Input() name: any;
   @Input() posicio: any;
+  @Input() imatgeURL: any;
+  @Input() punts: number;
+  @Input() fons: string;
+  fonsHTML! : HTMLElement;
 
-  constructor() {}
+  constructor() {
+    this.punts=0;
+    this.fons = "background-color: orange"
+  }
+  ngOnInit() {
+    this.fonsHTML = document.getElementById('fons')!;
+  }
 }
